@@ -1,15 +1,13 @@
 :root {
-    --black: #000000;
-    --white: #ffffff;
-    --gray: #888888;
+    --black: #000;
+    --white: #fff;
     --dark: #0a0a0a;
-    --border: #222222;
+    --gray: #888;
+    --border: #222;
 }
 
 
-/* =====================================================
-   GENERAL
-===================================================== */
+/* GENERAL */
 
 * {
     box-sizing: border-box;
@@ -33,18 +31,12 @@ body {
     overflow-x: hidden;
 }
 
-body.form-open {
-    overflow: hidden;
-}
-
 a {
     color: inherit;
 }
 
 
-/* =====================================================
-   HEADER
-===================================================== */
+/* HEADER */
 
 .header {
     position: fixed;
@@ -55,12 +47,12 @@ a {
     width: 100%;
     height: 75px;
 
+    padding: 0 5%;
+
     display: flex;
 
     align-items: center;
     justify-content: space-between;
-
-    padding: 0 5%;
 
     z-index: 1000;
 
@@ -69,7 +61,7 @@ a {
 
 .header.scrolled {
     background:
-        rgba(0, 0, 0, .88);
+        rgba(0, 0, 0, .9);
 
     backdrop-filter:
         blur(18px);
@@ -84,8 +76,6 @@ a {
     align-items: center;
 
     gap: 10px;
-
-    color: white;
 
     text-decoration: none;
 
@@ -116,7 +106,7 @@ a {
 
     font-size: 13px;
 
-    transition: .25s;
+    transition: .2s;
 }
 
 .header nav a:hover {
@@ -124,7 +114,8 @@ a {
 }
 
 .nav-button {
-    padding: 11px 21px;
+    padding:
+        11px 21px;
 
     background: white;
 
@@ -140,14 +131,16 @@ a {
 }
 
 
-/* =====================================================
-   HERO
-===================================================== */
+/* HERO */
 
 .hero {
     min-height: 100vh;
 
     position: relative;
+
+    padding:
+        130px 25px
+        90px;
 
     display: flex;
 
@@ -155,10 +148,6 @@ a {
 
     align-items: center;
     justify-content: center;
-
-    padding:
-        130px 25px
-        90px;
 
     text-align: center;
 
@@ -265,22 +254,18 @@ a {
 
     font-weight: 700;
 
-    transition: .3s;
+    transition: .25s;
 }
 
 .button:hover {
     transform:
-        translateY(-3px);
+        translateY(-2px);
 }
 
 .white {
     background: white;
 
     color: black;
-}
-
-.white:hover {
-    background: #ddd;
 }
 
 .outline {
@@ -303,9 +288,7 @@ a {
 }
 
 
-/* =====================================================
-   SECCIONES
-===================================================== */
+/* SECCIONES */
 
 .section {
     max-width: 1250px;
@@ -358,9 +341,7 @@ a {
 }
 
 
-/* =====================================================
-   SERVICIOS
-===================================================== */
+/* SERVICIOS */
 
 .services {
     display: grid;
@@ -372,8 +353,6 @@ a {
 }
 
 .service {
-    position: relative;
-
     min-height: 390px;
 
     padding: 30px;
@@ -389,8 +368,6 @@ a {
 
     border-radius: 25px;
 
-    overflow: hidden;
-
     opacity: 0;
 
     transform:
@@ -399,8 +376,8 @@ a {
     transition:
         opacity .6s,
         transform .6s,
-        border-color .3s,
-        background .3s;
+        border-color .25s,
+        background .25s;
 }
 
 .service.visible {
@@ -411,74 +388,39 @@ a {
 }
 
 .service:hover {
-    background: #0e0e0e;
+    background: #0d0d0d;
 
     border-color: #444;
 }
 
 .number {
-    margin-bottom: 34px;
+    margin-bottom: 35px;
 
-    color: #4c4c4c;
+    color: #444;
 
     font-size: 11px;
 }
 
 
-/* ICONOS */
+/* ICONOS ORIGINALES / SIMPLES */
 
-.service-icon {
-    width: 58px;
-    height: 58px;
+.icon {
+    height: 55px;
+
+    margin-bottom: 22px;
 
     display: flex;
 
     align-items: center;
-    justify-content: center;
-
-    margin-bottom: 23px;
-
-    background: #111;
 
     color: white;
 
-    border:
-        1px solid #333;
+    font-size: 31px;
 
-    border-radius: 17px;
+    font-weight: 300;
 
-    transition:
-        background .3s,
-        border-color .3s,
-        transform .3s;
+    line-height: 1;
 }
-
-.service:hover .service-icon {
-    background: #181818;
-
-    border-color: #666;
-
-    transform:
-        translateY(-3px);
-}
-
-.service-icon svg {
-    width: 28px;
-    height: 28px;
-
-    fill: none;
-
-    stroke: white;
-
-    stroke-width: 1.7;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
-}
-
-
-/* TEXTOS */
 
 .service h3 {
     margin:
@@ -496,9 +438,6 @@ a {
     line-height: 1.6;
 }
 
-
-/* ENLACES SERVICIO */
-
 .service > a {
     margin-top: auto;
 
@@ -512,91 +451,94 @@ a {
 
     font-weight: 700;
 
-    transition: .25s;
+    transition: .2s;
 }
 
 .service > a:hover {
     color: #aaa;
-
-    transform:
-        translateX(3px);
 }
 
 
-/* SOLICITAR PÁGINA */
+/* PÁGINAS WEB */
 
-.service-action {
-    width: fit-content;
-
+.web-actions {
     margin-top: auto;
 
-    padding:
-        30px 0
-        0;
+    padding-top: 30px;
 
-    background: transparent;
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+}
+
+.web-actions a {
+    position: relative;
 
     color: white;
 
-    border: 0;
-
-    outline: 0;
-
-    font-family: inherit;
+    text-decoration: none;
 
     font-size: 13px;
 
     font-weight: 700;
 
-    cursor: pointer;
-
-    appearance: none;
-
-    -webkit-appearance: none;
-
-    transition: .25s;
+    transition: .2s;
 }
 
-.service-action:hover {
+.web-actions a:hover {
     color: #aaa;
+}
 
-    transform:
-        translateX(3px);
+.web-actions .request-link {
+    color: #999;
+}
+
+.web-actions .request-link::before {
+    content: "";
+
+    position: absolute;
+
+    left: -11px;
+    top: 1px;
+
+    width: 1px;
+    height: 14px;
+
+    background: #333;
+}
+
+.web-actions .request-link:hover {
+    color: white;
 }
 
 
-/* =====================================================
-   SERVICIO 07 — PAGOS
-===================================================== */
+/* PAGOS */
 
 .payment-service {
     grid-column:
         1 / -1;
 
-    min-height: 260px;
+    min-height: 250px;
 
     display: grid;
 
     grid-template-columns:
-        90px
-        minmax(0, 1fr)
-        auto;
+        1fr auto;
 
     grid-template-rows:
-        auto
-        1fr;
+        auto 1fr;
 
-    column-gap: 30px;
-
-    align-items: center;
+    column-gap: 40px;
 
     padding:
         38px 42px;
 
     background:
         radial-gradient(
-            circle at 85% 50%,
-            rgba(255,255,255,.07),
+            circle at 80% 50%,
+            rgba(255,255,255,.06),
             transparent 30%
         ),
         #090909;
@@ -606,92 +548,78 @@ a {
     grid-column:
         1 / -1;
 
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+}
+
+.payment-main {
+    display: flex;
+
+    align-items: center;
+
+    gap: 30px;
 }
 
 .payment-icon {
-    grid-column: 1;
-
-    grid-row: 2;
-
     width: 72px;
     height: 72px;
+
+    flex-shrink: 0;
 
     display: flex;
 
     align-items: center;
     justify-content: center;
 
-    background: white;
-
-    color: black;
+    border:
+        1px solid #333;
 
     border-radius: 22px;
+
+    font-size: 40px;
+
+    font-weight: 300;
 }
 
-.payment-icon svg {
-    width: 35px;
-    height: 35px;
-
-    fill: none;
-
-    stroke: currentColor;
-
-    stroke-width: 1.6;
-
-    stroke-linecap: round;
-
-    stroke-linejoin: round;
+.payment-info {
+    max-width: 680px;
 }
 
-.payment-content {
-    grid-column: 2;
+.new-service {
+    display: block;
 
-    grid-row: 2;
-}
+    margin-bottom: 8px;
 
-.payment-label {
-    margin:
-        0 0
-        9px !important;
+    color: #555;
 
-    color: #555 !important;
-
-    font-size: 10px;
+    font-size: 9px;
 
     font-weight: 700;
 
     letter-spacing: 3px;
 }
 
-.payment-content h3 {
+.payment-info h3 {
     margin:
         0 0
         10px;
 
     font-size:
         clamp(
-            28px,
+            27px,
             4vw,
-            42px
+            40px
         );
 
-    letter-spacing: -1.5px;
-}
-
-.payment-content > p:last-child {
-    max-width: 620px;
+    letter-spacing: -1px;
 }
 
 .payment-button {
-    grid-column: 3;
-
-    grid-row: 2;
+    align-self: center;
 
     margin: 0 !important;
 
     padding:
-        15px 25px !important;
+        14px 24px !important;
 
     background: white;
 
@@ -709,9 +637,7 @@ a {
 }
 
 
-/* =====================================================
-   CÓMO FUNCIONA
-===================================================== */
+/* CÓMO FUNCIONA */
 
 .how {
     background: white;
@@ -781,9 +707,7 @@ a {
 }
 
 
-/* =====================================================
-   PROYECTOS
-===================================================== */
+/* PROYECTOS */
 
 .projects {
     display: grid;
@@ -872,9 +796,7 @@ a {
 }
 
 
-/* =====================================================
-   CONTACTO
-===================================================== */
+/* CONTACTO */
 
 .contact {
     min-height: 85vh;
@@ -907,8 +829,7 @@ a {
     max-width: 900px;
 }
 
-.contact >
-p:not(.etiqueta):not(.contact-location) {
+.contact > p:not(.etiqueta):not(.contact-location) {
     max-width: 560px;
 
     margin:
@@ -941,7 +862,7 @@ p:not(.etiqueta):not(.contact-location) {
 
     font-size: 13px;
 
-    transition: .25s;
+    transition: .2s;
 }
 
 .social-links a:hover {
@@ -957,9 +878,7 @@ p:not(.etiqueta):not(.contact-location) {
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* FOOTER */
 
 footer {
     max-width: 1250px;
@@ -1006,9 +925,7 @@ footer img {
 }
 
 
-/* =====================================================
-   WHATSAPP
-===================================================== */
+/* WHATSAPP */
 
 .whatsapp {
     position: fixed;
@@ -1042,7 +959,7 @@ footer img {
         0 10px 40px
         rgba(0,0,0,.5);
 
-    transition: .25s;
+    transition: .2s;
 }
 
 .whatsapp:hover {
@@ -1051,453 +968,7 @@ footer img {
 }
 
 
-/* =====================================================
-   FORMULARIO
-===================================================== */
-
-.form-overlay {
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 10000;
-
-    padding:
-        35px 20px;
-
-    display: flex;
-
-    justify-content: center;
-
-    align-items: flex-start;
-
-    overflow-y: auto;
-
-    background:
-        rgba(0,0,0,.92);
-
-    backdrop-filter:
-        blur(16px);
-
-    opacity: 0;
-
-    visibility: hidden;
-
-    pointer-events: none;
-
-    transition:
-        opacity .3s,
-        visibility .3s;
-}
-
-.form-overlay.active {
-    opacity: 1;
-
-    visibility: visible;
-
-    pointer-events: auto;
-}
-
-.form-window {
-    position: relative;
-
-    width:
-        min(
-            920px,
-            100%
-        );
-
-    padding:
-        70px;
-
-    background: #080808;
-
-    border:
-        1px solid #292929;
-
-    border-radius: 30px;
-
-    box-shadow:
-        0 40px 120px
-        rgba(0,0,0,.9);
-
-    transform:
-        translateY(20px);
-
-    transition: .3s;
-}
-
-.form-overlay.active
-.form-window {
-    transform:
-        translateY(0);
-}
-
-.form-close {
-    position: absolute;
-
-    top: 22px;
-    right: 22px;
-
-    width: 44px;
-    height: 44px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    padding: 0;
-
-    background: #151515;
-
-    color: white;
-
-    border:
-        1px solid #333;
-
-    border-radius: 50%;
-
-    font-size: 27px;
-
-    line-height: 1;
-
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.form-close:hover {
-    background: white;
-
-    color: black;
-}
-
-
-/* CABECERA FORM */
-
-.form-heading {
-    max-width: 700px;
-
-    margin-bottom: 60px;
-}
-
-.form-heading h2 {
-    margin:
-        15px 0
-        22px;
-
-    font-size:
-        clamp(
-            48px,
-            7vw,
-            75px
-        );
-
-    line-height: .95;
-
-    letter-spacing: -4px;
-}
-
-.form-heading h2 span {
-    display: block;
-
-    color: #666;
-}
-
-.form-heading >
-p:last-child {
-    max-width: 580px;
-
-    color: #888;
-
-    font-size: 16px;
-
-    line-height: 1.7;
-}
-
-
-/* BLOQUES */
-
-.form-section {
-    margin-bottom: 20px;
-
-    padding: 35px;
-
-    background: #0d0d0d;
-
-    border:
-        1px solid #222;
-
-    border-radius: 22px;
-}
-
-.form-number {
-    display: block;
-
-    margin-bottom: 15px;
-
-    color: #555;
-
-    font-size: 11px;
-
-    letter-spacing: 3px;
-}
-
-.form-section h3 {
-    margin:
-        0 0
-        35px;
-
-    color: white;
-
-    font-size: 27px;
-}
-
-
-/* CAMPOS */
-
-.form-field {
-    display: block;
-
-    margin-bottom: 30px;
-
-    color: #ddd;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    line-height: 1.5;
-}
-
-.form-field:last-child {
-    margin-bottom: 0;
-}
-
-.form-field > span {
-    display: block;
-}
-
-.form-field input,
-.form-field textarea,
-.form-field select {
-    width: 100%;
-
-    margin-top: 11px;
-
-    padding:
-        16px 17px;
-
-    background: #050505;
-
-    color: white;
-
-    border:
-        1px solid #292929;
-
-    border-radius: 12px;
-
-    outline: none;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    transition: .25s;
-}
-
-.form-field input:focus,
-.form-field textarea:focus,
-.form-field select:focus {
-    border-color: #777;
-
-    background: #090909;
-}
-
-.form-field textarea {
-    resize: vertical;
-}
-
-.form-field select {
-    cursor: pointer;
-}
-
-.form-field option {
-    background: #111;
-
-    color: white;
-}
-
-.form-field small {
-    display: block;
-
-    margin-top: 9px;
-
-    color: #666;
-
-    font-size: 11px;
-
-    font-weight: normal;
-
-    line-height: 1.5;
-}
-
-
-/* FIELDSETS */
-
-.form-section fieldset {
-    margin:
-        0 0
-        30px;
-
-    padding: 0;
-
-    border: 0;
-}
-
-.form-section legend {
-    margin-bottom: 14px;
-
-    color: #ddd;
-
-    font-size: 14px;
-
-    font-weight: 700;
-
-    line-height: 1.5;
-}
-
-
-/* OPCIONES */
-
-.choices {
-    display: grid;
-
-    grid-template-columns: 1fr;
-
-    gap: 8px;
-}
-
-.choices-grid {
-    grid-template-columns:
-        repeat(2, 1fr);
-}
-
-.choices label {
-    min-height: 50px;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 11px;
-
-    padding:
-        12px 14px;
-
-    background: #070707;
-
-    border:
-        1px solid #222;
-
-    border-radius: 11px;
-
-    color: #aaa;
-
-    font-size: 13px;
-
-    cursor: pointer;
-
-    transition: .2s;
-}
-
-.choices label:hover {
-    background: #111;
-
-    border-color: #444;
-
-    color: white;
-}
-
-.choices input {
-    flex-shrink: 0;
-
-    accent-color: white;
-}
-
-
-/* ENVIAR */
-
-.form-submit {
-    padding:
-        35px 5px
-        5px;
-
-    text-align: center;
-}
-
-.form-submit > p {
-    max-width: 500px;
-
-    margin:
-        0 auto
-        22px;
-
-    color: #666;
-
-    font-size: 12px;
-
-    line-height: 1.6;
-}
-
-.form-submit button {
-    width: 100%;
-
-    padding:
-        19px 25px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content:
-        space-between;
-
-    background: white;
-
-    color: black;
-
-    border: 0;
-
-    border-radius: 100px;
-
-    font-family: inherit;
-
-    font-size: 14px;
-
-    font-weight: 800;
-
-    cursor: pointer;
-
-    transition: .25s;
-}
-
-.form-submit button:hover {
-    background: #ddd;
-
-    transform:
-        translateY(-2px);
-}
-
-.form-submit button span {
-    font-size: 20px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
+/* TABLET */
 
 @media (max-width: 900px) {
 
@@ -1521,39 +992,13 @@ p:last-child {
         grid-column:
             1 / -1;
 
-        grid-template-columns:
-            75px
-            1fr;
+        grid-template-columns: 1fr;
 
-        grid-template-rows:
-            auto
-            auto
-            auto;
-
-        padding: 35px;
-    }
-
-    .payment-icon {
-        grid-column: 1;
-
-        grid-row: 2;
-    }
-
-    .payment-content {
-        grid-column: 2;
-
-        grid-row: 2;
+        gap: 25px;
     }
 
     .payment-button {
-        grid-column: 2;
-
-        grid-row: 3;
-
-        width: fit-content;
-
-        margin-top:
-            25px !important;
+        justify-self: start;
     }
 
     .projects {
@@ -1564,23 +1009,10 @@ p:last-child {
         grid-template-columns: 1fr;
     }
 
-    .steps article {
-        border-bottom:
-            1px solid #ddd;
-    }
-
-    .form-window {
-        padding:
-            70px 35px
-            45px;
-    }
-
 }
 
 
-/* =====================================================
-   CELULAR
-===================================================== */
+/* CELULAR */
 
 @media (max-width: 600px) {
 
@@ -1629,52 +1061,41 @@ p:last-child {
         min-height: 365px;
     }
 
+    .web-actions {
+        gap: 18px;
 
-    /* PAGOS EN CELULAR */
+        flex-wrap: wrap;
+    }
 
     .payment-service {
-        grid-column: auto;
-
-        min-height: 420px;
+        min-height: 400px;
 
         display: flex;
 
         flex-direction: column;
 
-        align-items: flex-start;
-
         padding: 30px;
     }
 
-    .payment-service .number {
-        margin-bottom: 34px;
+    .payment-main {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 22px;
     }
 
     .payment-icon {
         width: 62px;
         height: 62px;
-
-        margin-bottom: 23px;
-
-        border-radius: 18px;
-    }
-
-    .payment-content h3 {
-        font-size: 27px;
     }
 
     .payment-button {
-        width: fit-content;
-
         margin-top:
             auto !important;
 
-        padding:
-            14px 22px !important;
+        width: fit-content;
     }
-
-
-    /* FOOTER */
 
     footer {
         flex-direction: column;
@@ -1686,59 +1107,7 @@ p:last-child {
 
     .whatsapp {
         right: 18px;
-
         bottom: 18px;
-    }
-
-
-    /* FORMULARIO */
-
-    .form-overlay {
-        padding: 0;
-    }
-
-    .form-window {
-        min-height: 100vh;
-
-        padding:
-            85px 18px
-            40px;
-
-        border: 0;
-
-        border-radius: 0;
-    }
-
-    .form-close {
-        position: fixed;
-
-        top: 18px;
-        right: 18px;
-
-        z-index: 20;
-    }
-
-    .form-heading {
-        margin-bottom: 45px;
-    }
-
-    .form-heading h2 {
-        font-size: 48px;
-
-        letter-spacing: -3px;
-    }
-
-    .form-section {
-        padding:
-            25px 18px;
-    }
-
-    .form-section h3 {
-        font-size: 23px;
-    }
-
-    .choices-grid {
-        grid-template-columns: 1fr;
     }
 
 }
