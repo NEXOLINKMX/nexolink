@@ -1,11 +1,10 @@
 :root {
-    --black: #000;
-    --white: #fff;
-    --dark: #090909;
-    --card: #0b0b0c;
-    --gray: #8c8c91;
-    --gray-2: #5e5e63;
-    --border: #232326;
+    --black: #000000;
+    --white: #ffffff;
+    --gray: #888888;
+    --dark: #0a0a0a;
+    --dark-2: #101010;
+    --border: #222222;
 }
 
 
@@ -29,13 +28,17 @@ body {
     overflow-x: hidden;
 }
 
+body.form-open {
+    overflow: hidden;
+}
+
 a {
     color: inherit;
 }
 
 
 /* =========================
-   HEADER
+   NAVEGACIÓN
 ========================= */
 
 .header {
@@ -46,19 +49,19 @@ a {
     width: 100%;
     height: 75px;
 
-    padding: 0 5%;
-
     display: flex;
     align-items: center;
     justify-content: space-between;
 
+    padding: 0 5%;
+
     z-index: 1000;
 
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .header.scrolled {
-    background: rgba(0, 0, 0, .9);
+    background: rgba(0, 0, 0, 0.88);
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--border);
 }
@@ -66,6 +69,7 @@ a {
 .brand {
     display: flex;
     align-items: center;
+
     gap: 10px;
 
     text-decoration: none;
@@ -89,13 +93,13 @@ a {
 }
 
 .header nav a {
-    color: #999;
-
     text-decoration: none;
+
+    color: #999;
 
     font-size: 13px;
 
-    transition: .2s;
+    transition: 0.25s;
 }
 
 .header nav a:hover {
@@ -103,42 +107,35 @@ a {
 }
 
 .nav-button {
-    padding: 11px 21px;
-
     background: white;
     color: black;
 
-    border-radius: 100px;
-
     text-decoration: none;
+
+    padding: 11px 21px;
+
+    border-radius: 100px;
 
     font-size: 13px;
     font-weight: 700;
-
-    transition: .2s;
-}
-
-.nav-button:hover {
-    transform: translateY(-2px);
 }
 
 
 /* =========================
-   HERO
+   PORTADA
 ========================= */
 
 .hero {
     min-height: 100vh;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
     position: relative;
 
     padding: 130px 25px 90px;
-
-    display: flex;
-    flex-direction: column;
-
-    align-items: center;
-    justify-content: center;
 
     text-align: center;
 
@@ -154,7 +151,7 @@ a {
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.09),
+            rgba(255, 255, 255, 0.09),
             transparent 65%
         );
 
@@ -162,16 +159,16 @@ a {
 }
 
 .hero-logo {
-    position: relative;
-
     width: 115px;
     height: 115px;
-
-    margin-bottom: 32px;
 
     object-fit: cover;
 
     border-radius: 25px;
+
+    margin-bottom: 32px;
+
+    position: relative;
 }
 
 .etiqueta {
@@ -190,8 +187,7 @@ a {
 
     font-size: clamp(58px, 8vw, 110px);
 
-    line-height: .95;
-
+    line-height: 0.95;
     letter-spacing: -6px;
 }
 
@@ -208,15 +204,12 @@ a {
     color: #999;
 
     font-size: 18px;
-
     line-height: 1.7;
 }
 
 .hero-buttons {
     display: flex;
-
     justify-content: center;
-
     flex-wrap: wrap;
 
     gap: 12px;
@@ -232,16 +225,20 @@ a {
     font-size: 13px;
     font-weight: 700;
 
-    transition: .25s;
+    transition: 0.3s;
 }
 
 .button:hover {
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
 .white {
     background: white;
     color: black;
+}
+
+.white:hover {
+    background: #dedede;
 }
 
 .outline {
@@ -288,14 +285,12 @@ a {
     font-size: clamp(48px, 7vw, 85px);
 
     line-height: 1;
-
     letter-spacing: -5px;
 }
 
 .section-title h2 span,
 .contact h2 span {
     display: block;
-
     color: #666;
 }
 
@@ -305,7 +300,6 @@ a {
     color: #888;
 
     font-size: 17px;
-
     line-height: 1.6;
 }
 
@@ -317,72 +311,55 @@ a {
 .services {
     display: grid;
 
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns:
+        repeat(3, 1fr);
 
-    gap: 15px;
+    gap: 14px;
 }
 
 .service {
-    position: relative;
-
-    min-height: 380px;
+    min-height: 405px;
 
     padding: 30px;
 
     display: flex;
     flex-direction: column;
 
+    position: relative;
+
     overflow: hidden;
 
-    background:
-        radial-gradient(
-            circle at 100% 0%,
-            rgba(255,255,255,.035),
-            transparent 34%
-        ),
-        linear-gradient(
-            145deg,
-            #0c0c0e,
-            #080809
-        );
+    background: var(--dark);
 
     border: 1px solid var(--border);
-
-    border-radius: 22px;
-
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.025),
-        0 15px 50px rgba(0,0,0,.16);
+    border-radius: 25px;
 
     opacity: 0;
 
     transform: translateY(25px);
 
     transition:
-        opacity .6s,
-        transform .6s,
-        border-color .3s,
-        background .3s,
-        box-shadow .3s;
+        opacity 0.6s,
+        transform 0.6s,
+        border-color 0.3s,
+        background 0.3s;
 }
 
-.service::after {
+.service::before {
     content: "";
 
     position: absolute;
 
-    top: -80px;
-    right: -80px;
+    width: 150px;
+    height: 150px;
 
-    width: 180px;
-    height: 180px;
-
-    border-radius: 50%;
+    left: -60px;
+    top: -70px;
 
     background:
         radial-gradient(
             circle,
-            rgba(255,255,255,.035),
+            rgba(255, 255, 255, 0.06),
             transparent 70%
         );
 
@@ -391,618 +368,135 @@ a {
 
 .service.visible {
     opacity: 1;
-
     transform: translateY(0);
 }
 
 .service:hover {
-    border-color: #3c3c41;
+    background: #101010;
 
-    box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04),
-        0 22px 65px rgba(0,0,0,.28);
+    border-color: #555;
 
-    transform: translateY(-3px);
+    transform: translateY(-4px);
 }
 
 .number {
-    display: block;
+    color: #444;
 
-    margin-bottom: 24px;
+    font-size: 12px;
 
-    color: #4c4c51;
-
-    font-size: 10px;
-    font-weight: 700;
-
-    letter-spacing: 2px;
+    margin-bottom: 34px;
 }
 
 
-/* =========================
-   ICONOS
-========================= */
+/* ICONOS NUEVOS */
 
 .service-icon {
-    width: 52px;
-    height: 52px;
-
-    margin-bottom: 22px;
+    width: 58px;
+    height: 58px;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
+
+    margin-bottom: 23px;
 
     background:
         linear-gradient(
             145deg,
-            rgba(255,255,255,.055),
-            rgba(255,255,255,.015)
+            #ffffff,
+            #d7d7d7
         );
 
-    border: 1px solid #29292d;
+    color: black;
 
-    border-radius: 15px;
+    border-radius: 17px;
 
     box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.04);
+        0 10px 35px
+        rgba(255, 255, 255, 0.08);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+}
+
+.service:hover .service-icon {
+    transform:
+        translateY(-3px)
+        rotate(-2deg);
+
+    box-shadow:
+        0 15px 45px
+        rgba(255, 255, 255, 0.13);
 }
 
 .service-icon svg {
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
 
     fill: none;
 
-    stroke: #e9e9ec;
+    stroke: currentColor;
 
-    stroke-width: 1.55;
+    stroke-width: 1.7;
 
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-
-/* =========================
-   TEXTO SERVICIOS
-========================= */
+.service:first-child .service-icon svg {
+    fill: none;
+}
 
 .service h3 {
-    position: relative;
-
-    z-index: 2;
-
     margin: 0 0 13px;
 
-    font-size: 23px;
-
-    letter-spacing: -.6px;
+    font-size: 24px;
 }
 
 .service p {
-    position: relative;
-
-    z-index: 2;
-
-    max-width: 330px;
-
     margin: 0;
 
-    color: #85858a;
+    color: #888;
 
-    font-size: 14px;
-
-    line-height: 1.65;
+    line-height: 1.6;
 }
 
+.service > a,
+.service-link {
+    margin-top: auto;
 
-/* =========================
-   BOTONES SERVICIOS
-========================= */
-
-.service-button {
-    width: fit-content;
-
-    min-height: 39px;
-
-    padding: 0 17px;
-
-    display: inline-flex;
-
-    align-items: center;
-    justify-content: center;
-
-    gap: 10px;
-
-    background: #f3f3f4;
-
-    color: #090909;
-
-    border: 1px solid #f3f3f4;
-
-    border-radius: 100px;
+    padding-top: 30px;
 
     text-decoration: none;
 
-    font-size: 12px;
-    font-weight: 800;
-
-    white-space: nowrap;
-
-    transition:
-        transform .2s,
-        background .2s,
-        border-color .2s;
-}
-
-.service-button:hover {
-    background: white;
-
-    border-color: white;
-
-    transform: translateY(-2px);
-}
-
-.service-button span {
-    font-size: 15px;
-}
-
-.service > .service-button {
-    margin-top: auto;
-}
-
-
-/* =========================
-   PÁGINA WEB
-========================= */
-
-.web-actions {
-    margin-top: auto;
-
-    padding-top: 28px;
-
-    display: flex;
-
-    align-items: center;
-
-    flex-wrap: wrap;
-
-    gap: 9px;
-}
-
-.secondary-button {
-    background: transparent;
-
-    color: #d4d4d7;
-
-    border-color: #36363a;
-}
-
-.secondary-button:hover {
-    background: #151517;
-
     color: white;
 
-    border-color: #515156;
-}
+    font-family: inherit;
 
-
-/* =========================
-   PAGOS NFC
-========================= */
-
-.payment-service {
-    grid-column: 1 / -1;
-
-    min-height: 330px;
-
-    padding: 0;
-
-    display: grid;
-
-    grid-template-columns:
-        minmax(0, 1.15fr)
-        minmax(330px, .85fr);
-
-    background:
-        radial-gradient(
-            circle at 78% 45%,
-            rgba(255,255,255,.07),
-            transparent 27%
-        ),
-        linear-gradient(
-            110deg,
-            #0c0c0e 0%,
-            #09090a 54%,
-            #101012 100%
-        );
-}
-
-.payment-service::after {
-    width: 420px;
-    height: 420px;
-
-    top: -120px;
-    right: -80px;
-
-    opacity: .7;
-}
-
-.payment-copy {
-    position: relative;
-
-    z-index: 3;
-
-    padding: 35px 20px 35px 38px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-}
-
-.payment-topline {
-    width: 100%;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 14px;
-
-    margin-bottom: 18px;
-}
-
-.payment-topline .number {
-    margin: 0;
-}
-
-.new-service {
-    padding: 6px 9px;
-
-    background: rgba(255,255,255,.045);
-
-    color: #7f7f84;
-
-    border: 1px solid #29292d;
-
-    border-radius: 100px;
-
-    font-size: 8px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-}
-
-.payment-nfc-icon {
-    margin-bottom: 18px;
-}
-
-.payment-service h3 {
-    max-width: 550px;
-
-    margin-bottom: 12px;
-
-    font-size: clamp(27px, 3vw, 38px);
-
-    letter-spacing: -1.3px;
-}
-
-.payment-service p {
-    max-width: 560px;
-
-    font-size: 14px;
-}
-
-.payment-benefits {
-    margin-top: 20px;
-
-    display: flex;
-
-    flex-wrap: wrap;
-
-    gap: 8px;
-}
-
-.payment-benefits span {
-    padding: 7px 11px;
-
-    color: #77777c;
-
-    border: 1px solid #28282c;
-
-    border-radius: 100px;
-
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 700;
 }
 
-.payment-cta {
-    margin-top: 24px;
-}
-
-
-/* =========================
-   VISUAL DE PAGO
-========================= */
-
-.payment-visual {
-    position: relative;
-
-    min-height: 330px;
-
-    overflow: hidden;
-
-    border-left: 1px solid rgba(255,255,255,.035);
-}
-
-.payment-visual::after {
-    content: "";
-
-    position: absolute;
-
-    width: 300px;
-    height: 300px;
-
-    top: 15px;
-    left: 50%;
-
-    transform: translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(255,255,255,.09),
-            rgba(255,255,255,.02) 35%,
-            transparent 68%
-        );
-
-    filter: blur(5px);
-}
-
-
-/* TELÉFONO */
-
-.phone {
-    position: absolute;
-
-    z-index: 4;
-
-    width: 145px;
-    height: 270px;
-
-    top: 32px;
-    left: 48%;
-
-    transform:
-        translateX(-50%)
-        rotate(5deg);
-
-    padding: 8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #38383d,
-            #111114
-        );
-
-    border: 1px solid #525258;
-
-    border-radius: 28px;
-
-    box-shadow:
-        0 30px 60px rgba(0,0,0,.55),
-        inset 0 1px 0 rgba(255,255,255,.15);
-}
-
-.phone-screen {
-    width: 100%;
-    height: 100%;
-
-    padding: 48px 15px 20px;
-
-    display: flex;
-
-    flex-direction: column;
-
-    align-items: center;
-
-    background:
-        radial-gradient(
-            circle at 50% 20%,
-            #29292e,
-            #111113 45%,
-            #080809
-        );
-
-    border-radius: 21px;
-
-    text-align: center;
-}
-
-.phone-speaker {
-    position: absolute;
-
-    z-index: 2;
-
-    top: 17px;
-    left: 50%;
-
-    width: 38px;
-    height: 5px;
-
-    transform: translateX(-50%);
-
-    background: #050505;
-
-    border-radius: 100px;
-}
-
-.success-icon {
-    width: 45px;
-    height: 45px;
-
-    margin-bottom: 17px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    background: white;
-
-    color: black;
-
-    border-radius: 50%;
-
-    font-size: 20px;
-    font-weight: 900;
-}
-
-.phone-screen small {
-    color: #6e6e74;
-
-    font-size: 7px;
-    font-weight: 800;
-
-    letter-spacing: 1.3px;
-}
-
-.phone-screen strong {
-    margin-top: 8px;
-
-    font-size: 24px;
-
-    letter-spacing: -1px;
-}
-
-.phone-screen > span {
-    margin-top: auto;
-
-    color: #505055;
-
-    font-size: 8px;
-    font-weight: 800;
-
-    letter-spacing: 1.5px;
-}
-
-
-/* TARJETA NFC */
-
-.nfc-card {
-    position: absolute;
-
-    z-index: 5;
-
-    width: 150px;
-    height: 94px;
-
-    right: 23px;
-    bottom: 28px;
-
-    padding: 15px;
-
-    background:
-        linear-gradient(
-            135deg,
-            #222226,
-            #0e0e10
-        );
-
-    border: 1px solid #3a3a3f;
-
-    border-radius: 16px;
-
-    box-shadow:
-        0 20px 45px rgba(0,0,0,.5);
-
-    transform: rotate(-8deg);
-}
-
-.nfc-card > span {
+.service-link {
     display: block;
 
-    color: #c6c6ca;
+    width: fit-content;
 
-    font-size: 8px;
-    font-weight: 900;
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
 
-    letter-spacing: 1px;
+    background: none;
+
+    border: none;
+
+    cursor: pointer;
 }
 
-.nfc-card small {
-    position: absolute;
-
-    left: 15px;
-    bottom: 13px;
-
-    color: #55555b;
-
-    font-size: 6px;
-
-    letter-spacing: .7px;
-}
-
-.mini-nfc {
-    position: absolute;
-
-    top: 32px;
-    right: 17px;
-
-    color: #aaaab0;
-
-    font-size: 17px;
-
-    letter-spacing: -4px;
-
-    transform: rotate(-90deg);
-}
-
-
-/* ONDAS NFC */
-
-.nfc-rings {
-    position: absolute;
-
-    z-index: 2;
-
-    border: 1px solid rgba(255,255,255,.075);
-
-    border-radius: 50%;
-}
-
-.ring-one {
-    width: 150px;
-    height: 150px;
-
-    top: 87px;
-    left: 44%;
-
-    transform: translateX(-50%);
-}
-
-.ring-two {
-    width: 220px;
-    height: 220px;
-
-    top: 52px;
-    left: 44%;
-
-    transform: translateX(-50%);
-}
-
-.ring-three {
-    width: 300px;
-    height: 300px;
-
-    top: 12px;
-    left: 44%;
-
-    transform: translateX(-50%);
+.service > a:hover,
+.service-link:hover {
+    color: #aaa;
 }
 
 
@@ -1012,7 +506,6 @@ a {
 
 .how {
     background: white;
-
     color: black;
 }
 
@@ -1034,7 +527,8 @@ a {
     grid-template-columns:
         repeat(3, 1fr);
 
-    border-top: 1px solid #ddd;
+    border-top:
+        1px solid #ddd;
 }
 
 .steps article {
@@ -1044,12 +538,11 @@ a {
 
     transform: translateY(25px);
 
-    transition: .6s;
+    transition: 0.6s;
 }
 
 .steps article.visible {
     opacity: 1;
-
     transform: translateY(0);
 }
 
@@ -1090,7 +583,8 @@ a {
 
     background: #090909;
 
-    border: 1px solid #222;
+    border:
+        1px solid var(--border);
 
     border-radius: 24px;
 
@@ -1098,7 +592,7 @@ a {
 
     transform: translateY(30px);
 
-    transition: .6s;
+    transition: 0.6s;
 }
 
 .project.visible {
@@ -1116,7 +610,7 @@ a {
 
     object-fit: cover;
 
-    transition: .5s;
+    transition: transform 0.5s;
 }
 
 .project:hover img {
@@ -1130,7 +624,8 @@ a {
 
     display: flex;
 
-    justify-content: space-between;
+    justify-content:
+        space-between;
 
     align-items: flex-end;
 }
@@ -1169,8 +664,9 @@ a {
 
     flex-direction: column;
 
-    align-items: center;
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 }
@@ -1179,11 +675,11 @@ a {
     width: 85px;
     height: 85px;
 
-    margin-bottom: 30px;
-
     object-fit: cover;
 
     border-radius: 20px;
+
+    margin-bottom: 30px;
 }
 
 .contact h2 {
@@ -1221,7 +717,7 @@ a {
 
     font-size: 13px;
 
-    transition: .2s;
+    transition: 0.25s;
 }
 
 .social-links a:hover {
@@ -1248,13 +744,15 @@ footer {
 
     padding: 35px 30px;
 
+    border-top:
+        1px solid var(--border);
+
     display: flex;
 
     align-items: center;
 
-    justify-content: space-between;
-
-    border-top: 1px solid #222;
+    justify-content:
+        space-between;
 
     color: #555;
 
@@ -1298,11 +796,10 @@ footer img {
 
     display: flex;
 
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     background: white;
-
     color: black;
 
     border-radius: 50%;
@@ -1316,13 +813,432 @@ footer img {
 
     box-shadow:
         0 10px 40px
-        rgba(0,0,0,.5);
+        rgba(0, 0, 0, 0.5);
 
-    transition: .2s;
+    transition: 0.25s;
 }
 
 .whatsapp:hover {
     transform: scale(1.08);
+}
+
+
+/* =====================================================
+   FORMULARIO WEB
+===================================================== */
+
+.form-overlay {
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-start;
+
+    padding: 35px 20px;
+
+    background:
+        rgba(0, 0, 0, 0.88);
+
+    backdrop-filter: blur(15px);
+
+    overflow-y: auto;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.3s,
+        visibility 0.3s;
+
+    z-index: 5000;
+}
+
+.form-overlay.active {
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+.form-window {
+    width: min(
+        920px,
+        100%
+    );
+
+    position: relative;
+
+    padding: 70px;
+
+    background: #080808;
+
+    border:
+        1px solid #292929;
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 40px 100px
+        rgba(0, 0, 0, 0.8);
+
+    transform:
+        translateY(25px)
+        scale(0.98);
+
+    transition: 0.35s;
+}
+
+.form-overlay.active
+.form-window {
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+.form-close {
+    position: absolute;
+
+    right: 25px;
+    top: 22px;
+
+    width: 43px;
+    height: 43px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #151515;
+
+    color: white;
+
+    border:
+        1px solid #292929;
+
+    border-radius: 50%;
+
+    font-size: 27px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.form-close:hover {
+    background: white;
+
+    color: black;
+
+    transform: rotate(90deg);
+}
+
+.form-heading {
+    max-width: 700px;
+
+    margin-bottom: 65px;
+}
+
+.form-heading h2 {
+    margin:
+        14px 0
+        22px;
+
+    font-size:
+        clamp(
+            48px,
+            7vw,
+            75px
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -4px;
+}
+
+.form-heading h2 span {
+    display: block;
+
+    color: #666;
+}
+
+.form-heading > p:last-child {
+    max-width: 570px;
+
+    color: #888;
+
+    font-size: 16px;
+
+    line-height: 1.7;
+}
+
+
+/* SECCIÓN FORM */
+
+.form-section {
+    position: relative;
+
+    margin-bottom: 25px;
+
+    padding: 35px;
+
+    background: #0d0d0d;
+
+    border:
+        1px solid #202020;
+
+    border-radius: 22px;
+}
+
+.form-section-number {
+    margin-bottom: 15px;
+
+    color: #555;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+}
+
+.form-section h3 {
+    margin:
+        0 0
+        35px;
+
+    font-size: 27px;
+}
+
+.form-section > label,
+.form-section fieldset {
+    display: block;
+
+    margin:
+        0 0
+        30px;
+}
+
+.form-section > label:last-child,
+.form-section fieldset:last-child {
+    margin-bottom: 0;
+}
+
+.form-section > label,
+legend {
+    color: #ddd;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.5;
+}
+
+fieldset {
+    padding: 0;
+
+    border: 0;
+}
+
+legend {
+    margin-bottom: 14px;
+}
+
+
+/* INPUTS */
+
+input[type="text"],
+input[type="tel"],
+input[type="date"],
+textarea,
+select {
+    width: 100%;
+
+    margin-top: 11px;
+
+    padding: 16px 17px;
+
+    background: #050505;
+
+    color: white;
+
+    border:
+        1px solid #292929;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    transition: 0.25s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #777;
+
+    background: #090909;
+}
+
+select {
+    cursor: pointer;
+}
+
+option {
+    background: #111;
+
+    color: white;
+}
+
+.form-section small {
+    display: block;
+
+    margin-top: 9px;
+
+    color: #666;
+
+    font-size: 11px;
+
+    font-weight: normal;
+
+    line-height: 1.5;
+}
+
+
+/* OPCIONES */
+
+.choices-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 8px;
+}
+
+.choice {
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    min-height: 50px;
+
+    padding: 12px 14px;
+
+    background: #070707;
+
+    border:
+        1px solid #222;
+
+    border-radius: 11px;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    font-weight: normal;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.choice:hover {
+    background: #111;
+
+    border-color: #444;
+
+    color: white;
+}
+
+.choice input {
+    accent-color: white;
+
+    flex-shrink: 0;
+}
+
+
+/* BOTÓN ENVIAR */
+
+.form-submit-area {
+    padding:
+        35px 5px
+        5px;
+
+    text-align: center;
+}
+
+.form-submit-area p {
+    max-width: 500px;
+
+    margin:
+        0 auto
+        22px;
+
+    color: #666;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+}
+
+.submit-button {
+    width: 100%;
+
+    padding: 19px 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content:
+        space-between;
+
+    background: white;
+
+    color: black;
+
+    border: 0;
+
+    border-radius: 100px;
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.submit-button span {
+    font-size: 20px;
+}
+
+.submit-button:hover {
+    transform:
+        translateY(-3px);
+
+    background: #ddd;
 }
 
 
@@ -1344,37 +1260,7 @@ footer img {
 
     .services {
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-    }
-
-    .payment-service {
-        grid-template-columns:
-            minmax(0, 1fr)
-            310px;
-    }
-
-    .payment-copy {
-        padding:
-            32px 15px
-            32px 30px;
-    }
-
-    .payment-visual {
-        min-height: 350px;
-    }
-
-    .phone {
-        width: 130px;
-        height: 245px;
-
-        top: 48px;
-    }
-
-    .nfc-card {
-        width: 135px;
-        height: 85px;
-
-        right: 10px;
+            repeat(2, 1fr);
     }
 
     .projects {
@@ -1385,6 +1271,17 @@ footer img {
         grid-template-columns: 1fr;
     }
 
+    .steps article {
+        border-bottom:
+            1px solid #ddd;
+    }
+
+    .form-window {
+        padding:
+            65px 35px
+            40px;
+    }
+
 }
 
 
@@ -1392,7 +1289,7 @@ footer img {
    CELULAR
 ========================= */
 
-@media (max-width: 650px) {
+@media (max-width: 600px) {
 
     .brand span {
         font-size: 12px;
@@ -1400,6 +1297,12 @@ footer img {
 
     .nav-button {
         padding: 10px 16px;
+    }
+
+    .hero {
+        padding-left: 18px;
+
+        padding-right: 18px;
     }
 
     .hero-logo {
@@ -1419,11 +1322,8 @@ footer img {
 
     .section,
     .how-container {
-        padding: 100px 18px;
-    }
-
-    .section-title {
-        margin-bottom: 45px;
+        padding:
+            100px 18px;
     }
 
     .section-title h2,
@@ -1438,105 +1338,13 @@ footer img {
     }
 
     .service {
-        min-height: 350px;
-
-        padding: 26px;
-
-        border-radius: 20px;
+        min-height: 370px;
     }
 
     .service-icon {
-        width: 49px;
-        height: 49px;
-    }
+        width: 55px;
 
-    .web-actions {
-        align-items: stretch;
-
-        flex-direction: column;
-
-        gap: 8px;
-    }
-
-    .web-actions .service-button {
-        width: 100%;
-    }
-
-
-    /* PAGOS EN CELULAR */
-
-    .payment-service {
-        min-height: 0;
-
-        padding: 0;
-
-        display: flex;
-
-        flex-direction: column;
-    }
-
-    .payment-copy {
-        padding: 28px 26px 15px;
-    }
-
-    .payment-service h3 {
-        font-size: 30px;
-    }
-
-    .payment-benefits {
-        margin-top: 18px;
-    }
-
-    .payment-cta {
-        margin-top: 23px;
-    }
-
-    .payment-visual {
-        width: 100%;
-
-        min-height: 310px;
-
-        border-left: 0;
-
-        border-top:
-            1px solid
-            rgba(255,255,255,.035);
-    }
-
-    .phone {
-        width: 130px;
-        height: 245px;
-
-        top: 30px;
-        left: 47%;
-    }
-
-    .nfc-card {
-        width: 135px;
-        height: 86px;
-
-        right: 20px;
-        bottom: 22px;
-    }
-
-    .ring-one {
-        top: 75px;
-    }
-
-    .ring-two {
-        top: 40px;
-    }
-
-    .ring-three {
-        top: 0;
-    }
-
-
-    /* CONTACTO */
-
-    .contact {
-        padding:
-            100px 18px;
+        height: 55px;
     }
 
     footer {
@@ -1549,7 +1357,61 @@ footer img {
 
     .whatsapp {
         right: 18px;
+
         bottom: 18px;
+    }
+
+
+    /* FORMULARIO CELULAR */
+
+    .form-overlay {
+        padding: 0;
+    }
+
+    .form-window {
+        min-height: 100vh;
+
+        padding:
+            85px 18px
+            40px;
+
+        border: 0;
+
+        border-radius: 0;
+    }
+
+    .form-close {
+        position: fixed;
+
+        right: 18px;
+
+        top: 18px;
+
+        z-index: 10;
+    }
+
+    .form-heading {
+        margin-bottom: 45px;
+    }
+
+    .form-heading h2 {
+        font-size: 48px;
+
+        letter-spacing: -3px;
+    }
+
+    .form-section {
+        padding: 25px 18px;
+
+        border-radius: 18px;
+    }
+
+    .form-section h3 {
+        font-size: 23px;
+    }
+
+    .choices-grid {
+        grid-template-columns: 1fr;
     }
 
 }
